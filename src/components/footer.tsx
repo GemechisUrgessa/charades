@@ -1,6 +1,4 @@
-import React from "react";
-
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <footer className="footer">
       <p>© 2024 Charades Game. All rights reserved.</p>

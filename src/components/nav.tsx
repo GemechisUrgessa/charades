@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "../assets/logo_1_-removebg-preview.png";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
