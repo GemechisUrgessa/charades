@@ -1,33 +1,114 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./layout";
+import SimpleLayout from "./simpleLayout";
+import HomePage from "./pages/mainpage";
+import AboutPage from "./pages/about";
+import Rules from "./pages/rules";
+import Contact from "./pages/contact";
+import Play from "./pages/play";
+import { is } from "@babel/types";
 function App() {
-  const [count, setCount] = useState(0);
+  const [screen, setScreen] = React.useState(window.innerWidth);
+  const [screenOrinetation, setScreenOrientation] = React.useState(
+    window.screen.orientation.type
+  );
+  const [isLandscape, setIsLandscape] = React.useState(false);
+  const [notMobile, setNotMobile] = React.useState(false);
+  const [currentpage, setCurrentPage] = React.useState("home");
+  useEffect(() => {
+    if (window.location.pathname === "/play") {
+      setCurrentPage("play");
+    }
+    if (screen >= 668 && screenOrinetation === "portrait-primary") {
+      setNotMobile(true);
+    } else if (
+      screen >= 668 &&
+      screenOrinetation === "landscape-primary" &&
+      currentpage != "play"
+    ) {
+      setNotMobile(true);
+      setIsLandscape(true);
+    } else {
+      setNotMobile(false);
+    }
+    const handleResize = () => {
+      setScreen(window.innerWidth);
+      setScreenOrientation(window.screen.orientation.type);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [screen, notMobile, screenOrinetation, currentpage, isLandscape]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {notMobile ? (
+        isLandscape ? (
+          <h1 className="no-game">
+            Sorry, this page of the app is not available a Landscape
+          </h1>
+        ) : (
+          <h1 className="no-game">
+            Sorry, this app is not available on desktop
+          </h1>
+        )
+      ) : (
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <HomePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <Layout>
+                  <AboutPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/rules"
+              element={
+                <Layout>
+                  <Rules />
+                </Layout>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <Layout>
+                  <Contact />
+                </Layout>
+              }
+            />
+            <Route
+              path="/play"
+              element={
+                <SimpleLayout>
+                  <Play />
+                </SimpleLayout>
+              }
+            />
+            {/* Add more routes with Layout as needed */}
+            <Route
+              path="*"
+              element={
+                <Layout>
+                  <HomePage />
+                </Layout>
+              }
+            />
+          </Routes>
+        </Router>
+      )}
     </>
   );
 }
