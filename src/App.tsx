@@ -7,7 +7,8 @@ import AboutPage from "./pages/about";
 import Rules from "./pages/rules";
 import Contact from "./pages/contact";
 import Play from "./pages/play";
-import { is } from "@babel/types";
+import gif from "./assets/play.gif";
+
 function App() {
   const [screen, setScreen] = React.useState(window.innerWidth);
   const [screenOrinetation, setScreenOrientation] = React.useState(
@@ -46,9 +47,34 @@ function App() {
     <>
       {notMobile ? (
         isLandscape ? (
-          <h1 className="no-game">
-            Sorry, this page of the app is not available a Landscape
-          </h1>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100vh",
+            }}
+          >
+            <h2
+              style={{
+                color: "red",
+                textAlign: "center",
+              }}
+            >
+              Sorry, this page of the app is not available on a Landscape view!!
+            </h2>
+            <img
+              style={{
+                color: "white",
+                width: "50px",
+                height: "50px",
+                transform: "rotate(90deg)",
+              }}
+              src={gif}
+              alt="gif"
+            />
+          </div>
         ) : (
           <h1 className="no-game">
             Sorry, this app is not available on desktop

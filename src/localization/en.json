@@ -31,7 +31,35 @@
     },
     "playPage": {
     "rotateDevice": "Please rotate your device to landscape mode.",
-    "content": "This is the game content. It can be quite long, but it should fit the screen even in landscape mode."
+    "wordList": {
+        "apple": "Apple",
+        "banana": "Banana",
+        "carrot": "Carrot",
+        "dog": "Dog",
+        "elephant": "Elephant",
+        "frog": "Frog",
+        "giraffe": "Giraffe",
+        "horse": "Horse",
+        "iguana": "Iguana",
+        "jellyfish": "Jellyfish",
+        "kangaroo": "Kangaroo",
+        "lion": "Lion",
+        "monkey": "Monkey",
+        "narwhal": "Narwhal",
+        "ostrich": "Ostrich",
+        "penguin": "Penguin",
+        "quail": "Quail",
+        "rabbit": "Rabbit",
+        "snake": "Snake",
+        "tiger": "Tiger",
+        "umbrella": "Umbrella",
+        "vulture": "Vulture",
+        "whale": "Whale",
+        "xylophone": "Xylophone",
+        "yak": "Yak",
+        "zebra": "Zebra"
+
+    }
   }
 
 }

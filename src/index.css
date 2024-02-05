@@ -173,14 +173,14 @@ button:focus-visible {
   color: white;
 }
 
-.no-game {
+/* .no-game {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   font-size: 2em;
   color: #646cff;
-}
+} */
 
 .mainPage {
   display: flex;
@@ -606,10 +606,14 @@ h1, h2 {
 }
 
 .text-content {
-  padding: 20px;
-  font-size: 1.5rem;
+  /* padding: 20px; */
+  font-size: 5rem;
   word-wrap: break-word;
-  max-width: 100vh;
+  width: 100%;
+  /* max-width: 100vh; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: goldenrod;
+  font-style: italic;
   /* Based on viewport height, since we're rotating the view */
 }
 
@@ -617,6 +621,7 @@ h1, h2 {
 .landscape-prompt {
   display: flex;
   position: fixed;
+  flex-direction: column;
   top: 0;
   left: 0;
   width: 100vw;

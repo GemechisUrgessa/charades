@@ -1,0 +1,33 @@
+const charadesWords = {
+    title: 'Charades',
+    wordList: [
+        'apple',
+        'banana',
+        'carrot',
+        'dog',
+        'elephant',
+        'frog',
+        'giraffe',
+        'horse',
+        'iguana',
+        'jellyfish',
+        'kangaroo',
+        'lion',
+        'monkey',
+        'narwhal',
+        'ostrich',
+        'penguin',
+        'quail',
+        'rabbit',
+        'snake',
+        'tiger',
+        'umbrella',
+        'vulture',
+        'whale',
+        'xylophone',
+        'yak',
+        'zebra',
+    ],
+    };
+
+export default charadesWords;
