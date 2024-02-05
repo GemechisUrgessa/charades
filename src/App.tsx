@@ -7,7 +7,7 @@ import AboutPage from "./pages/about";
 import Rules from "./pages/rules";
 import Contact from "./pages/contact";
 import Play from "./pages/play";
-import gif from "./assets/play.gif";
+// import gif from "./assets/play.gif";
 
 function App() {
   const [screen, setScreen] = React.useState(window.innerWidth);
@@ -45,96 +45,60 @@ function App() {
 
   return (
     <>
-      {notMobile ? (
-        isLandscape ? (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-            }}
-          >
-            <h2
-              style={{
-                color: "red",
-                textAlign: "center",
-              }}
-            >
-              Sorry, this page of the app is not available on a Landscape view!!
-            </h2>
-            <img
-              style={{
-                color: "white",
-                width: "50px",
-                height: "50px",
-                transform: "rotate(90deg)",
-              }}
-              src={gif}
-              alt="gif"
-            />
-          </div>
-        ) : (
-          <h1 className="no-game">
-            Sorry, this app is not available on desktop
-          </h1>
-        )
-      ) : (
-        <Router>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Layout>
-                  <HomePage />
-                </Layout>
-              }
-            />
-            <Route
-              path="/about"
-              element={
-                <Layout>
-                  <AboutPage />
-                </Layout>
-              }
-            />
-            <Route
-              path="/rules"
-              element={
-                <Layout>
-                  <Rules />
-                </Layout>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <Layout>
-                  <Contact />
-                </Layout>
-              }
-            />
-            <Route
-              path="/play"
-              element={
-                <SimpleLayout>
-                  <Play />
-                </SimpleLayout>
-              }
-            />
-            {/* Add more routes with Layout as needed */}
-            <Route
-              path="*"
-              element={
-                <Layout>
-                  <HomePage />
-                </Layout>
-              }
-            />
-          </Routes>
-        </Router>
-      )}
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <HomePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <AboutPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/rules"
+            element={
+              <Layout>
+                <Rules />
+              </Layout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Layout>
+                <Contact />
+              </Layout>
+            }
+          />
+          <Route
+            path="/play"
+            element={
+              <SimpleLayout>
+                <Play />
+              </SimpleLayout>
+            }
+          />
+          {/* Add more routes with Layout as needed */}
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <HomePage />
+              </Layout>
+            }
+          />
+        </Routes>
+      </Router>
+      {/* )} */}
     </>
   );
 }
