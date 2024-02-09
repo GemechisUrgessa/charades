@@ -20,6 +20,7 @@ const MainPage = () => {
 
   const handleLanguageChange = (e: string) => {
     setShowLanguages(false);
+    localStorage.setItem("language", e);
     i18n.changeLanguage(e);
   };
   return (

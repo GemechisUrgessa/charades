@@ -123,7 +123,6 @@ function App() {
                 </SimpleLayout>
               }
             />
-            {/* Add more routes with Layout as needed */}
             <Route
               path="*"
               element={
